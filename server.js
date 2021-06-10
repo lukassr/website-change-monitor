@@ -28,7 +28,7 @@ const elementsToSearchFor6 = ['Agregar al Carro'];
 const checkingFrequency = 1 * 60000; // first number represent the checkingFrequency in minutes
 
 // Slack Integration
-const SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/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';
+const { SLACK_WEBHOOK_URL } = process.env;
 const slack = require('slack-notify')(SLACK_WEBHOOK_URL);
 
 // SendGrid Email Integration
@@ -127,11 +127,5 @@ app.get('/', (req, res) => {
 // Server start
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
-  slack.alert('✅ Website Change Monitor is working OK ✅', (err) => {
-    if (err) {
-      console.log('Slack API error:', err);
-    } else {
-      console.log('Message received in slack!');
-    }
-  });
+  sendSlackMessage();
 });
