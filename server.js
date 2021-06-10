@@ -17,13 +17,13 @@ const elementsToSearchFor1 = ['Comprar ahora'];
 const urlToCheck2 = 'https://bip.cl/tarjeta-de-video-zotac-geforce-rtx-3070-twin-edge-oc-8gb-gddr6-256-bit-14-gbps-pcie-40-zt-a30700h-10p_28509';
 const elementsToSearchFor2 = ['Comprar ahora'];
 const urlToCheck3 = 'https://www.pclinkstore.cl/tarjeta-de-video-asus-geforce-rtxTM-%EF%B8%8F3070-oc-edition-8gb-gddr6-dual-rtx3070-o8g';
-const elementsToSearchFor3 = ['Agregar al Carro'];
+const elementsToSearchFor3 = ['Disponibilidad:'];
 const urlToCheck4 = 'https://www.pclinkstore.cl/tarjeta-de-video-asus-dual-rtx-3060-12gb';
-const elementsToSearchFor4 = ['Agregar al Carro'];
+const elementsToSearchFor4 = ['Disponibilidad:'];
 const urlToCheck5 = 'https://www.pclinkstore.cl/tarjeta-de-video-zotac-rtx3070-twin-edge-oc-8gb-gddr6x';
-const elementsToSearchFor5 = ['Agregar al Carro'];
+const elementsToSearchFor5 = ['Disponibilidad:'];
 const urlToCheck6 = 'https://www.pclinkstore.cl/tarjeta-de-video-zotac-rtx3060-twin-edge-oc-12gb-gddr6-oczt-a30600h-10m';
-const elementsToSearchFor6 = ['Agregar al Carro'];
+const elementsToSearchFor6 = ['Disponibilidad:'];
 
 const checkingFrequency = 1 * 60000; // first number represent the checkingFrequency in minutes
 
@@ -58,7 +58,7 @@ function getResponse(url, elements) {
         // if any elementsToSearchFor exist
         if (elements.some(el => body.includes(el))) {
           // Slack Alert Notification
-          slack.alert(`🔥🔥🔥  <${url}/|Change detected in ${url}>  🔥🔥🔥 `, (error) => {
+          slack.alert(`🔥 <${url}/|Change detected in ${url}> 🔥`, (error) => {
             if (error) {
               console.log('Slack API error:', error);
             } else {
